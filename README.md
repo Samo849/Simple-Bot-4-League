@@ -14,3 +14,4 @@ How to use it:
 - Preferably close other aplications
 - (You need to have python installed) 
 - Locate to the directory where the file is stored in the terminal. Then run the program using the command:  python bot.py
+- You can stop the program at any time pressing the number "9" on your keyboard
