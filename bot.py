@@ -27,8 +27,6 @@ for i in range(num_of_repeats):
     if stop_execution:
         break
 
-    #j = 0
-
 
     while "League of Legends (TM) Client" in pyautogui.getActiveWindowTitle(): 
         if stop_execution:
@@ -40,10 +38,6 @@ for i in range(num_of_repeats):
         league_window_width = league_window.width
         league_window_height = league_window.height
 
-                
-        #print(str(i) + "." + str(j))
-        #j += 1
-        
         random_numberX = random.randint(1,15)
         random_numberY = random.randint(1,10)
 
