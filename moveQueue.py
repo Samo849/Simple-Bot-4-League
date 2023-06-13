@@ -27,7 +27,7 @@ for i in range(num_of_repeats):
     if stop_execution:
         break
 
-    j = 0
+    #j = 0
 
 
     while "League of Legends (TM) Client" in pyautogui.getActiveWindowTitle(): 
@@ -51,16 +51,17 @@ for i in range(num_of_repeats):
         pyautogui.rightClick(screenCenterX + league_window_width/4 + league_window_width/8 + league_window_width/32 + league_window_width/128 + random_numberX, 
                              screenCenterY + league_window_height/4 + league_window_height/16 + league_window_height/32 + league_window_height/128 + random_numberY)
         
-        pyautogui.rightClick(screenCenterX + league_window_width/4 + league_window_width/8 + league_window_width/32 + league_window_width/128 + random_numberX, 
-                             screenCenterY + league_window_height/4 + league_window_height/16 + league_window_height/32 + league_window_height/128 + random_numberY)
         
+        #this might be better. Test it out.
+        # pyautogui.rightClick(league_window_x + league_window_width/2 + league_window_width/4 + league_window_width/8 + league_window_width/32 + league_window_width/128 + random_numberX, 
+        #                     league_window_y + league_window_height/2 + league_window_height/4 + league_window_height/16 + league_window_height/32 + league_window_height/128 + random_numberY)
         
         # alt tabs because otherwise it doesn't work for some reason
         pyautogui.keyDown('alt')
         pyautogui.press('tab')
         pyautogui.keyUp('alt')
 
-        time.sleep(3)
+        time.sleep(3 + random.randint(1,20))
         pyautogui.leftClick(screenCenterX + league_window_width/4 + league_window_width/8 + league_window_width/32 + league_window_width/128 + random_numberX, 
                              screenCenterY + league_window_height/4 + league_window_height/16 + league_window_height/32 + league_window_height/128 + random_numberY)
 
@@ -68,31 +69,36 @@ for i in range(num_of_repeats):
         if stop_execution:
             break
 
+        league_window = pyautogui.getWindowsWithTitle("League of Legends")[0]
+        league_window_x = league_window.left
+        league_window_y = league_window.top
+        league_window_width = league_window.width
+        league_window_height = league_window.height
 
-        #print(str(i) + "." + str(j))
-        #j += 1
 
-        pyautogui.leftClick(1400, 500)
+        # confirm game mode, start game
+        pyautogui.leftClick(league_window_x + league_window_width/4 + league_window_width/8, league_window.bottom - league_window_height/16)
 
-        #accept queue
-        pyautogui.leftClick(930, 650)
+        # accept game
+        pyautogui.leftClick(league_window_x +  league_window_width/2, league_window.bottom - league_window_height/4)
 
-        # select a couple of champions
-        pyautogui.leftClick(1100, 350)
-        pyautogui.leftClick(1050, 350)
-        pyautogui.leftClick(1000, 350)
-        pyautogui.leftClick(950, 350)
-        pyautogui.leftClick(900, 350)
-        pyautogui.leftClick(850, 350)
+        # select several champions (in case one of the already got picked)
+        pyautogui.leftClick(league_window.right - league_window_width/4 - league_window_width/16,
+                             league_window_y + league_window_width/8)
+        pyautogui.leftClick(league_window.right - league_window_width/4 - league_window_width/16 - league_window_width/16,
+                             league_window_y + league_window_width/8)
+        pyautogui.leftClick(league_window.right - league_window_width/4 - league_window_width/16 - league_window_width/16 - league_window_width/16,
+                             league_window_y + league_window_width/8)
+        pyautogui.leftClick(league_window.right - league_window_width/4 - league_window_width/16- league_window_width/16 - league_window_width/16 - league_window_width/16,
+                             league_window_y + league_window_width/8)
+        pyautogui.leftClick(league_window.right - league_window_width/4 - league_window_width/16 - league_window_width/16 - league_window_width/16 - league_window_width/16- league_window_width/16 ,
+                             league_window_y + league_window_width/8)
+        pyautogui.leftClick(league_window.right - league_window_width/4 - league_window_width/16 - league_window_width/16 - league_window_width/16 - league_window_width/16- league_window_width/16 - league_window_width/16,
+                             league_window_y + league_window_width/8)
         
+        #confirm champ
+        pyautogui.leftClick(league_window_x +  league_window_width/2, league_window.bottom - league_window_height/8 - league_window_height/32)
 
-        # play again, lock in, champ
-        
-        
-        pyautogui.leftClick(930, 720)
-        pyautogui.leftClick(930, 760)
-        pyautogui.leftClick(850, 770)
-
+        # to do: accept rewards that pop up and champions
+    
         time.sleep(3)
-
-9
