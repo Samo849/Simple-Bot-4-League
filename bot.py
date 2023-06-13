@@ -48,11 +48,6 @@ for i in range(num_of_repeats):
         random_numberY = random.randint(1,10)
 
         # clicks on the map
-        #pyautogui.rightClick(screenCenterX + league_window_width/4 + league_window_width/8 + league_window_width/32 + league_window_width/128 + random_numberX, 
-        #                     screenCenterY + league_window_height/4 + league_window_height/16 + league_window_height/32 + league_window_height/128 + random_numberY)
-        
-        
-        #this might be better. Test it out.
         pyautogui.rightClick(league_window_x + league_window_width/2 + league_window_width/4 + league_window_width/8 + league_window_width/32 + league_window_width/128 + random_numberX, 
                              league_window_y + league_window_height/2 + league_window_height/4 + league_window_height/16 + league_window_height/32 + league_window_height/128 + random_numberY)
         
